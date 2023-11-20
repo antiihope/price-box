@@ -1,0 +1,25 @@
+.price-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: auto;
+  .price-box-ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

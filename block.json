@@ -1,0 +1,56 @@
+{
+  "apiVersion": 2,
+  "name": "price-box/group",
+  "title": "price box",
+  "category": "media",
+  "icon": "groups",
+  "description": "A team members grid.",
+  "keywords": ["Team", "Members", "Grid"],
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css",
+  "providesContext": {
+    "price-box/group": "columns"
+  },
+  "attributes": {
+    "price": {
+      "type": "number",
+      "default": 50
+    },
+    "planName": {
+      "type": "string",
+      "default": "Basic"
+    },
+    "benefits": {
+      "type": "array",
+      "default": ["Benefit 1", "Benefit 3", "Benefit 3"]
+    },
+    "discount": {
+      "type": "number",
+      "default": null
+    },
+    "link": {
+      "type": "string",
+      "default": "https://www.google.com"
+    },
+    "sections": {
+      "type": "array",
+      "default": [
+        {
+          "top": {
+            "backgroundColor": "#fff",
+            "percentage": 50
+          },
+          "bottom": {
+            "backgroundColor": "#fff",
+            "percentage": 50
+          }
+        }
+      ]
+    }
+  }
+}
