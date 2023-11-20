@@ -8,7 +8,17 @@
   "keywords": ["Team", "Members", "Grid"],
   "supports": {
     "html": false,
-    "align": ["wide", "full"]
+    "align": ["wide", "full"],
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    }
   },
   "editorScript": "file:./build/index.js",
   "editorStyle": "file:./build/index.css",

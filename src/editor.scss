@@ -1,3 +1,6 @@
+$top-color: #f0f0f0;
+$bottom-color: #221d1d;
+
 .price-box-container {
   display: flex;
   justify-content: center;
@@ -6,9 +9,19 @@
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ccc;
+  color: $top-color;
   border-radius: 5px;
   margin: auto;
+
+  /* Apply the linear gradient background */
+  background-image: url('https://cdn.shortpixel.ai/spai/q_lossless+ret_img+to_webp/https://ultimateelementor.com/wp-content/uploads/2018/05/price1.jpg');
+  background-size: 100% 50%;
+  background-position: top;
+  background-repeat: no-repeat;
+
   .price-box-ul {
+    color: $bottom-color;
+
     list-style: none !important;
     padding: 0;
     margin: 0;
@@ -16,10 +29,6 @@
     text-align: center;
     li {
       padding: 10px 0;
-      border-bottom: 1px solid #ccc;
-      &:last-child {
-        border-bottom: none;
-      }
     }
   }
 
@@ -27,14 +36,18 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     .price-tag {
-      color: #000;
+      color: $top-color;
       position: relative;
       margin: auto;
     }
     .price-tag-initial {
       font-size: 19px;
-      color: #000;
+      color: $top-color;
       text-decoration: line-through;
       position: relative;
       right: 8px;
