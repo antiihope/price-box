@@ -31,7 +31,7 @@
     },
     "discount": {
       "type": "number",
-      "default": null
+      "default": 20
     },
     "link": {
       "type": "string",

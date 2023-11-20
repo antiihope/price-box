@@ -22,4 +22,23 @@
       }
     }
   }
+
+  .price-tag-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .price-tag {
+      color: #000;
+      position: relative;
+      margin: auto;
+    }
+    .price-tag-initial {
+      font-size: 19px;
+      color: #000;
+      text-decoration: line-through;
+      position: relative;
+      right: 8px;
+      bottom: 11px;
+    }
+  }
 }
