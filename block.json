@@ -28,24 +28,55 @@
   },
   "attributes": {
     "price": {
-      "type": "number",
-      "default": 50
+      "type": "string",
+      "default": "50"
+    },
+    "discount": {
+      "type": "string",
+      "default": "20"
     },
     "planName": {
       "type": "string",
       "default": "Basic"
     },
+    "description": {
+      "type": "string",
+      "default": "For small teams or office"
+    },
     "benefits": {
       "type": "array",
-      "default": ["Benefit 1", "Benefit 3", "Benefit 3"]
+      "default": ["Great support", "Faster times", "More features", "+ 2 more"]
     },
-    "discount": {
-      "type": "number",
-      "default": 20
-    },
+
     "link": {
       "type": "string",
       "default": "https://www.google.com"
+    },
+    "dottedList": {
+      "type": "boolean",
+      "default": false
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "featuredText": {
+      "type": "string",
+      "default": "Featured offer"
+    },
+    "textStyles": {
+      "type": "object",
+      "default": {
+        "dottedList": true,
+        "alignList": "left",
+        "alignPrice": "center",
+        "planNameTag": "h3",
+        "planPlacement": "top"
+      }
+    },
+    "theme-name": {
+      "type": "string",
+      "default": ""
     },
     "sections": {
       "type": "array",
