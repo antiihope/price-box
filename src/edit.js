@@ -10,31 +10,12 @@ export default function Edit({ attributes, setAttributes }) {
   const doted = textStyles?.dottedList;
   const alignList = textStyles?.alignList;
   const alignPrice = textStyles?.alignPrice;
-  const [showTestPanel, setShowTestPanel] = useState(false);
 
   const onTextStyleChanges = (type, value) => {
     const newStyles = { ...textStyles, [type]: value };
     setAttributes({ textStyles: newStyles });
   };
 
-  const PlanNameSetting = () => {
-    return (
-      <PanelBody title={'Plan Name Typography'}>
-        <SelectControl
-          label={'Font size'}
-          value={textStyles?.planNameTag}
-          options={[
-            { label: 'Large', value: 'h1' },
-            { label: 'Medium', value: 'h2' },
-            { label: 'Small', value: 'h3' },
-          ]}
-          onChange={(newSize) => {
-            onTextStyleChanges('planNameTag', newSize);
-          }}
-        />
-      </PanelBody>
-    );
-  };
   const onChangePlanName = (newPlanName) => setAttributes({ planName: newPlanName });
   const onChangePrice = (newPrice) => {
     setAttributes({ price: newPrice.replace('$', '') });
@@ -56,9 +37,6 @@ export default function Edit({ attributes, setAttributes }) {
               className="price-box-plan-name"
               tagName={textStyles?.planNameTag || 'h1'}
               value={planName}
-              onClick={() => {
-                setShowTestPanel(!showTestPanel);
-              }}
               onChange={onChangePlanName}
             />
             <div
@@ -88,9 +66,6 @@ export default function Edit({ attributes, setAttributes }) {
               className="price-box-plan-name"
               tagName={textStyles?.planNameTag || 'h1'}
               value={planName}
-              onClick={() => {
-                setShowTestPanel(!showTestPanel);
-              }}
               onChange={onChangePlanName}
             />
           </>
@@ -101,7 +76,20 @@ export default function Edit({ attributes, setAttributes }) {
   return (
     <div {...useBlockProps()}>
       <InspectorControls>
-        {showTestPanel && <PlanNameSetting />}
+        <PanelBody title={'Plan Name Typography'}>
+          <SelectControl
+            label={'Font size'}
+            value={textStyles?.planNameTag}
+            options={[
+              { label: 'Large', value: 'h1' },
+              { label: 'Medium', value: 'h2' },
+              { label: 'Small', value: 'h3' },
+            ]}
+            onChange={(newSize) => {
+              onTextStyleChanges('planNameTag', newSize);
+            }}
+          />
+        </PanelBody>
 
         <PanelBody title={'Price Box Settings'}>
           <ToggleControl label={'Featured'} checked={featured} onChange={(newfeatured) => setAttributes({ featured: newfeatured })} />

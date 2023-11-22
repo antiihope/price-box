@@ -39,6 +39,15 @@ The block will conclude of a parent block that hosts by default 3 price blocks/3
 
 <img src="http://tstore.thezed.me/i/cbuo1b2.png" alt="Image 3" style="max-width: 600px;">
 
+## themes:
+
+### light
+
+<img src="https://user-images.githubusercontent.com/65074998/284676426-d0a59b4a-d5ae-414b-aa36-0b527aad7862.png" alt="Image 3" style="max-width: 500px;">
+
+### Spacy
+
+<img src="https://user-images.githubusercontent.com/65074998/284676989-dc185823-7baa-4b29-aba0-619c33470eb5.png" alt="Image 3" style="max-width: 500px;">
 ### features:
 
 - Add/Remove to the benifts list
@@ -49,6 +58,7 @@ The block will conclude of a parent block that hosts by default 3 price blocks/3
 - Select placement of Plan Name, top or bottom
 - Set a previous price and a discount, will show a line through the previous price and show the discount
 - Block Settings can be edited from side panel or directly from the block
+- Choose from predefined theme or set your ownn to control round corners, background, and color
 
 ---
 
