@@ -1,18 +1,31 @@
-import { useBlockProps, RichText, InspectorControls, ColorPalette } from '@wordpress/block-editor';
-import { PanelBody, TextControl, SelectControl, ToggleControl } from '@wordpress/components';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 import './editor.scss';
 import { useState } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
+
 import SidePanelSettings from './sidePanel';
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId }) {
   const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
 
   const { dottedList: dotted, alignList, alignPrice, planPlacement } = textStyles;
 
-  const onTextStyleChanges = (type, value) => {
-    const newStyles = { ...textStyles, [type]: value };
-    setAttributes({ textStyles: newStyles });
-  };
+  // get block attributes
+  const blockAttrs = useSelect(
+    (select) => {
+      const { getBlockAttributes } = select('core/block-editor');
+      const blockAttributes = getBlockAttributes(clientId);
+      return blockAttributes;
+    },
+    [clientId]
+  );
+
+  // check if user set any type of custom coloring, this will then disable the block theme to use user's coloring
+  const backgroundOrGradient = (() => {
+    return (
+      blockAttrs?.style?.color?.gradient || blockAttrs?.style?.color?.background || blockAttrs?.gradient || blockAttrs?.backgroundColor
+    );
+  })();
 
   const onChangePlanName = (newPlanName) => setAttributes({ planName: newPlanName });
   const onChangePrice = (newPrice) => {
@@ -22,14 +35,13 @@ export default function Edit({ attributes, setAttributes }) {
   const onChangeDiscount = (newDiscount) => {
     setAttributes({ discount: newDiscount.replace('$', '') });
   };
-  const onChangeLink = (newLink) => setAttributes({ link: newLink });
   const onChangeFeaturedText = (newFeaturedText) => setAttributes({ featuredText: newFeaturedText });
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
 
   return (
     <div {...useBlockProps()}>
       <SidePanelSettings attributes={attributes} setAttributes={setAttributes} />
-      <div className={`price-box-container ${featured ? 'featured-block' : theme}`}>
+      <div className={`price-box-container ${featured ? 'featured-block' : backgroundOrGradient ? 'user-defined-theme' : theme}`}>
         {featured && (
           <div className="featured-tag">
             <RichText tagName="p" value={featuredText} onChange={onChangeFeaturedText} />

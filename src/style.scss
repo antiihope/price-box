@@ -6,6 +6,9 @@ $top-color: #ffffff;
   font-family: 'Giest';
   src: url('https://vercel.com/_next/static/media/4f117ec02fc103f8.p.woff2');
 }
+.wp-block-price-box-group {
+  border-radius: 20px;
+}
 .price-box-container {
   font-family: 'Giest', sans-serif;
   justify-content: center;
@@ -126,6 +129,23 @@ $top-color: #ffffff;
   border-radius: 20px;
   * {
     color: #333;
+  }
+  button {
+    color: wheat;
+  }
+}
+
+.price-box-container.user-defined-theme {
+  background: unset;
+  background-size: unset;
+  background-image: unset;
+
+  animation: unset;
+  border: unset;
+  border-radius: 20px;
+
+  * {
+    color: unset;
   }
   button {
     color: wheat;
