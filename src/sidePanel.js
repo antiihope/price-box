@@ -1,6 +1,5 @@
-import { useBlockProps, RichText, InspectorControls, ColorPalette } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, SelectControl, ToggleControl } from '@wordpress/components';
-import { Button } from '@wordpress/components';
 
 const SidePanelSettings = ({ attributes, setAttributes }) => {
   const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
@@ -23,7 +22,6 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
     setAttributes({ discount: newDiscount.replace('$', '') });
   };
   const onChangeLink = (newLink) => setAttributes({ link: newLink });
-  const onChangeFeaturedText = (newFeaturedText) => setAttributes({ featuredText: newFeaturedText });
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
   const onThemeChange = (newTheme) => setAttributes({ theme: newTheme });
   return (

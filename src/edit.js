@@ -1,13 +1,11 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 import './editor.scss';
-import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 
 import SidePanelSettings from './sidePanel';
 export default function Edit({ attributes, setAttributes, clientId }) {
   const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
-
   const { dottedList: dotted, alignList, alignPrice, planPlacement } = textStyles;
 
   // get block attributes
@@ -19,7 +17,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
     },
     [clientId]
   );
-
   // check if user set any type of custom coloring, this will then disable the block theme to use user's coloring
   const backgroundOrGradient = (() => {
     return (
@@ -28,13 +25,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   })();
 
   const onChangePlanName = (newPlanName) => setAttributes({ planName: newPlanName });
-  const onChangePrice = (newPrice) => {
-    setAttributes({ price: newPrice.replace('$', '') });
-  };
+  const onChangePrice = (newPrice) => setAttributes({ price: newPrice.replace('$', '') });
   const onChangeBenefits = (newBenefits) => setAttributes({ benefits: newBenefits });
-  const onChangeDiscount = (newDiscount) => {
-    setAttributes({ discount: newDiscount.replace('$', '') });
-  };
+  const onChangeDiscount = (newDiscount) => setAttributes({ discount: newDiscount.replace('$', '') });
   const onChangeFeaturedText = (newFeaturedText) => setAttributes({ featuredText: newFeaturedText });
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
 
@@ -116,7 +109,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                 }}
               />
             ))}
-            {/* plugs button that adds an element to the benifits */}
+            {/* plus button that adds an element to the benifits */}
             <Button
               variant="link"
               onClick={() => {

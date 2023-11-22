@@ -18,6 +18,9 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
+
+require_once('registerPattern.php');
+
 function price_box_block_init()
 {
 	register_block_type_from_metadata(__DIR__);
