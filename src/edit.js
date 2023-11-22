@@ -116,7 +116,7 @@ export default function Edit({ attributes, setAttributes }) {
           </ul>
         )}
         <a href={link}>
-          <Button variant="primary">Buy Now</Button>
+          <button className="cta-button">Buy Now</button>
         </a>
       </div>
     </div>

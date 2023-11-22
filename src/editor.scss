@@ -2,8 +2,12 @@
 $bottom-color: #221d1d;
 $top-color: #ffffff;
 
+@font-face {
+  font-family: 'Giest';
+  src: url('https://vercel.com/_next/static/media/4f117ec02fc103f8.p.woff2');
+}
 .price-box-container {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Giest', sans-serif;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -180,5 +184,24 @@ $top-color: #ffffff;
   }
   100% {
     background-position: 24% 0%;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000; /* Choose your desired button color */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+
+  /* Hover effect for the button */
+  &:hover {
+    background-color: #333; /* Change to a slightly darker shade on hover */
   }
 }

@@ -1,55 +1,207 @@
-.wp-block-block-course-team-members {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: -10px;
-	margin-right: -10px;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+$bottom-color: #221d1d;
+$top-color: #ffffff;
 
-	@for $i from 1 through 6 {
-		&.has-#{$i}-columns {
+@font-face {
+  font-family: 'Giest';
+  src: url('https://vercel.com/_next/static/media/414fe043d41639e8-s.p.woff2');
+}
+.price-box-container {
+  font-family: 'Giest', sans-serif;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: $top-color;
+  border-radius: 5px;
+  margin: auto;
 
-			.wp-block-block-course-team-member {
-				width: calc(100% / #{$i} - 20px);
-			}
-		}
-	}
+  /* Apply the linear gradient background */
+  background-size: 90% 45%;
+  background-image: url('https://cdn.shortpixel.ai/spai/q_lossless+ret_img+to_webp/https://ultimateelementor.com/wp-content/uploads/2018/05/price1.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
 
-	.wp-block-block-course-team-member {
-		margin: 10px;
+  .featured-tag {
+    position: absolute;
+    top: 0px;
+    right: -7px;
+    background: linear-gradient(247deg, #845757, cadetblue);
+    padding: 5px 10px;
+    /* border-radius: 0px 0px 5px 5px; */
+    color: #ffffff;
+    font-size: 11px;
+    box-shadow: -5px 1px 7px 0px rgba(43, 41, 41, 0.75);
+    font-weight: 600;
+    background: radial-gradient(circle at 59% 50%, #6377be, #7934c7, #a9589c);
+  }
 
-		img {
-			margin-bottom: 20px;
-		}
+  .price-description {
+    color: black;
+    padding: 15px;
+    font-size: small;
+    opacity: 0.8;
+    text-align: center;
+  }
+  .price-tag-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
-		h3 {
-			color: #222;
-			font-size: 22px;
-			font-size: bold;
-			margin: 0;
-		}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .price-tag {
+      // color: $top-color;
+      position: relative;
+      margin: auto;
+    }
+    .price-tag-initial {
+      font-size: 19px;
+      // color: $top-color;
+      text-decoration: line-through;
+      position: relative;
+      right: 8px;
+      bottom: 11px;
+      opacity: 0.7;
+    }
+  }
+  .price-box-ul {
+    color: $bottom-color;
+    padding: 11px;
+    margin: 0;
+    align-items: center;
+    width: 100%;
 
-		p {
-			color: #565656;
-			font-size: 16px;
-			font-weight: 300;
-			margin-bottom: 5px;
-			margin-top: 5px;
-		}
-		.wp-block-block-course-team-member-social-links{
-			ul{
-				list-style: none;
-				padding: 0;
-				margin: 15px -5px 0 ;
-			}
-			li{
-				display: inline-block;
-				margin: 5px;
-			}
-			a{
-				text-decoration: none;
-			}
-			span.dashicon {
-				color: #565656;
-			}
-		}
-	}
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    li {
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.price-box-container.spacy-theme {
+  background: linear-gradient(90deg, #020381, #2874fc);
+  background-size: 400% 800%;
+  animation: AnimationName 20s ease infinite;
+  border: solid 5px rgb(255, 0, 234);
+  * {
+    color: white;
+  }
+  button {
+    color: black;
+  }
+}
+.price-box-container.light-theme {
+  background: linear-gradient(90deg, #ffceec, #ffe530);
+  background-size: 100% 400%;
+  animation: AnimationName 20s ease infinite;
+  border: solid 2px rgb(57 44 56);
+  * {
+    color: black;
+  }
+  button {
+    color: white;
+  }
+}
+
+.price-box-container.easy-theme {
+  background: linear-gradient(90deg, #f5f5f5, antiquewhite);
+  background-size: 100% 400%;
+  animation: AnimationName 20s ease infinite;
+  border: solid 2px #ccc;
+  border-radius: 20px;
+  * {
+    color: #333;
+  }
+  button {
+    color: white;
+  }
+}
+
+@keyframes silverGradientAnimation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.featured-block {
+  background: linear-gradient(199deg, #5c99f1, #000000);
+  background-size: 400% 400%;
+  animation: AnimationName 20s ease infinite;
+  border: solid 5px gold;
+  * {
+    color: white;
+  }
+  // drop shadow
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 24% 0%;
+  }
+  50% {
+    background-position: 77% 100%;
+  }
+  100% {
+    background-position: 24% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 24% 0%;
+  }
+  50% {
+    background-position: 77% 100%;
+  }
+  100% {
+    background-position: 24% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 24% 0%;
+  }
+  50% {
+    background-position: 77% 100%;
+  }
+  100% {
+    background-position: 24% 0%;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000; /* Choose your desired button color */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+
+  /* Hover effect for the button */
+  &:hover {
+    background-color: #333; /* Change to a slightly darker shade on hover */
+  }
 }
