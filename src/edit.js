@@ -5,8 +5,8 @@ import { useSelect } from '@wordpress/data';
 
 import SidePanelSettings from './sidePanel';
 export default function Edit({ attributes, setAttributes, clientId }) {
-  const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
-  const { dottedList: dotted, alignList, alignPrice, planPlacement } = textStyles;
+  const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
+  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius } = addedStyles;
 
   // get block attributes
   const blockAttrs = useSelect(
@@ -32,7 +32,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
 
   return (
-    <div {...useBlockProps()}>
+    <div
+      {...useBlockProps({
+        className: `border-${borderRadius}`,
+      })}
+    >
       <SidePanelSettings attributes={attributes} setAttributes={setAttributes} />
       <div className={`price-box-container ${featured ? 'featured-block' : backgroundOrGradient ? 'user-defined-theme' : theme}`}>
         {featured && (
@@ -46,7 +50,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
             <>
               <RichText
                 className="price-box-plan-name"
-                tagName={textStyles?.planNameTag || 'h1'}
+                tagName={addedStyles?.planNameTag || 'h1'}
                 value={planName}
                 onChange={onChangePlanName}
               />
@@ -75,7 +79,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
               </div>
               <RichText
                 className="price-box-plan-name"
-                tagName={textStyles?.planNameTag || 'h1'}
+                tagName={addedStyles?.planNameTag || 'h1'}
                 value={planName}
                 onChange={onChangePlanName}
               />

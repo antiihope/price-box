@@ -6,9 +6,12 @@ $top-color: #ffffff;
   font-family: 'Giest';
   src: url('https://vercel.com/_next/static/media/4f117ec02fc103f8.p.woff2');
 }
-.wp-block-price-box-group {
-  border-radius: 20px;
+@for $i from 1 through 25 {
+  .border-#{$i} {
+    border-radius: #{$i}px;
+  }
 }
+
 .price-box-container {
   font-family: 'Giest', sans-serif;
   justify-content: center;

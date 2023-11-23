@@ -64,34 +64,20 @@
       "type": "string",
       "default": "Featured offer"
     },
-    "textStyles": {
+    "addedStyles": {
       "type": "object",
       "default": {
         "dottedList": true,
         "alignList": "left",
         "alignPrice": "center",
         "planNameTag": "h3",
-        "planPlacement": "top"
+        "planPlacement": "top",
+        "borderRadius": 0
       }
     },
     "theme": {
       "type": "string",
       "default": ""
-    },
-    "sections": {
-      "type": "array",
-      "default": [
-        {
-          "top": {
-            "backgroundColor": "#fff",
-            "percentage": 50
-          },
-          "bottom": {
-            "backgroundColor": "#fff",
-            "percentage": 50
-          }
-        }
-      ]
     }
   }
 }

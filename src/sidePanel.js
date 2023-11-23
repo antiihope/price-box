@@ -1,35 +1,33 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, SelectControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl, ToggleControl, RangeControl } from '@wordpress/components';
 
 const SidePanelSettings = ({ attributes, setAttributes }) => {
-  const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
+  const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
 
-  const doted = textStyles?.dottedList;
-  const alignList = textStyles?.alignList;
-  const alignPrice = textStyles?.alignPrice;
+  const doted = addedStyles?.dottedList;
+  const alignList = addedStyles?.alignList;
+  const alignPrice = addedStyles?.alignPrice;
+  const borderRadius = addedStyles?.borderRadius;
 
   const onTextStyleChanges = (type, value) => {
-    const newStyles = { ...textStyles, [type]: value };
-    setAttributes({ textStyles: newStyles });
+    const newStyles = { ...addedStyles, [type]: value };
+    setAttributes({ addedStyles: newStyles });
   };
 
   const onChangePlanName = (newPlanName) => setAttributes({ planName: newPlanName });
-  const onChangePrice = (newPrice) => {
-    setAttributes({ price: newPrice.replace('$', '') });
-  };
+  const onChangePrice = (newPrice) => setAttributes({ price: newPrice.replace('$', '') });
   const onChangeBenefits = (newBenefits) => setAttributes({ benefits: newBenefits });
-  const onChangeDiscount = (newDiscount) => {
-    setAttributes({ discount: newDiscount.replace('$', '') });
-  };
+  const onChangeDiscount = (newDiscount) => setAttributes({ discount: newDiscount.replace('$', '') });
   const onChangeLink = (newLink) => setAttributes({ link: newLink });
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
   const onThemeChange = (newTheme) => setAttributes({ theme: newTheme });
+
   return (
     <InspectorControls>
       <PanelBody title={'Plan Name Typography'}>
         <SelectControl
           label={'Font size'}
-          value={textStyles?.planNameTag}
+          value={addedStyles?.planNameTag}
           options={[
             { label: 'Large', value: 'h1' },
             { label: 'Medium', value: 'h2' },
@@ -65,7 +63,7 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
         <TextControl label={'Plan Name'} value={planName} onChange={onChangePlanName} />
         <SelectControl
           label={'Plan Placement'}
-          value={textStyles?.planPlacement}
+          value={addedStyles?.planPlacement}
           options={[
             { label: 'top', value: 'top' },
             { label: 'bottom', value: 'bottom' },
@@ -82,6 +80,16 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
           label={'Dotted List'}
           checked={doted}
           onChange={(newDottedList) => onTextStyleChanges('dottedList', newDottedList)}
+        />
+        <RangeControl
+          min={0}
+          max={25}
+          value={borderRadius}
+          label="Round corners"
+          onChange={(value) => {
+            console.log(value);
+            onTextStyleChanges('borderRadius', value);
+          }}
         />
 
         <SelectControl

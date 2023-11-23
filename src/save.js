@@ -1,8 +1,8 @@
 import { RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-  const { price, planName, benefits, discount, link, textStyles, featured, featuredText, description, theme } = attributes;
-  const { dottedList: dotted, alignList, alignPrice, planPlacement } = textStyles;
+  const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
+  const { dottedList: dotted, alignList, alignPrice, planPlacement } = addedStyles;
 
   return (
     <div className={`price-box-container ${featured ? 'featured-block' : theme}`}>
@@ -14,7 +14,7 @@ export default function save({ attributes }) {
 
       {planPlacement == 'top' ? (
         <>
-          <RichText.Content className="price-box-plan-name" tagName={textStyles?.planNameTag || 'h1'} value={planName} />
+          <RichText.Content className="price-box-plan-name" tagName={addedStyles?.planNameTag || 'h1'} value={planName} />
           <div className="price-tag-wrapper">
             {discount && <RichText.Content className="price-tag-initial" tagName="p" value={`$${discount}`} />}
             <RichText.Content className="price-tag" tagName="h1" value={`$${price}`} />
@@ -26,7 +26,7 @@ export default function save({ attributes }) {
             {discount && <RichText.Content className="price-tag-initial" tagName="p" value={`$${discount}`} />}
             <RichText.Content className="price-tag" tagName="h1" value={`$${price}`} />
           </div>
-          <RichText.Content className="price-box-plan-name" tagName={textStyles?.planNameTag || 'h1'} value={planName} />
+          <RichText.Content className="price-box-plan-name" tagName={addedStyles?.planNameTag || 'h1'} value={planName} />
         </>
       )}
 
