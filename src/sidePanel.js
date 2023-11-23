@@ -87,7 +87,6 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
           value={borderRadius}
           label="Round corners"
           onChange={(value) => {
-            console.log(value);
             onTextStyleChanges('borderRadius', value);
           }}
         />
