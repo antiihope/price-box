@@ -62,7 +62,7 @@
     },
     "featuredText": {
       "type": "string",
-      "default": "Featured offer"
+      "default": "Founder's choice"
     },
     "addedStyles": {
       "type": "object",

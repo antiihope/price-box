@@ -3,6 +3,7 @@ import { Button } from '@wordpress/components';
 import './editor.scss';
 import { useSelect } from '@wordpress/data';
 import SidePanelSettings from './sidePanel';
+import { useEffect } from '@wordpress/element';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
   const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
@@ -31,6 +32,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   const onChangeFeaturedText = (newFeaturedText) => setAttributes({ featuredText: newFeaturedText });
   const onChangeDescription = (newDescription) => setAttributes({ description: newDescription });
 
+  useEffect(() => {
+    if (backgroundOrGradient) {
+      setAttributes({ theme: 'user-defined-theme' });
+    }
+  }, [backgroundOrGradient]);
   return (
     <div
       {...useBlockProps({
@@ -38,7 +44,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
       })}
     >
       <SidePanelSettings attributes={attributes} setAttributes={setAttributes} />
-      <div className={`price-box-container ${featured ? 'featured-block' : backgroundOrGradient ? 'custom user-defined-theme' : theme}`}>
+      <div className={`price-box-container ${featured ? 'featured-block' : backgroundOrGradient ? 'user-defined-theme' : theme}`}>
         {featured && (
           <div className="featured-tag">
             <RichText tagName="p" value={featuredText} onChange={onChangeFeaturedText} />
