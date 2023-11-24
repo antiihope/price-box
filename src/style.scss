@@ -34,9 +34,9 @@ $top-color: #ffffff;
     color: wheat;
   }
   .featured-tag {
-    position: absolute;
-    top: 0px;
-    right: -7px;
+    position: relative;
+    top: -32px;
+    right: -70px;
     background: linear-gradient(247deg, #845757, cadetblue);
     padding: 5px 10px;
     /* border-radius: 0px 0px 5px 5px; */
