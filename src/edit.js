@@ -7,7 +7,7 @@ import { useEffect } from '@wordpress/element';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
   const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
-  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius } = addedStyles;
+  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius, boxShadow } = addedStyles;
 
   // get block attributes
   const blockAttrs = useSelect(
@@ -40,7 +40,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   return (
     <div
       {...useBlockProps({
-        className: `border-${borderRadius}`,
+        className: `border-${borderRadius} box-shadow-${boxShadow} align-${alignPrice}}`,
       })}
     >
       <SidePanelSettings attributes={attributes} setAttributes={setAttributes} />

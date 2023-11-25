@@ -3,11 +3,7 @@ import { PanelBody, TextControl, SelectControl, ToggleControl, RangeControl } fr
 
 const SidePanelSettings = ({ attributes, setAttributes }) => {
   const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
-
-  const doted = addedStyles?.dottedList;
-  const alignList = addedStyles?.alignList;
-  const alignPrice = addedStyles?.alignPrice;
-  const borderRadius = addedStyles?.borderRadius;
+  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius, boxShadow } = addedStyles;
 
   const onTextStyleChanges = (type, value) => {
     const newStyles = { ...addedStyles, [type]: value };
@@ -78,7 +74,7 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
 
         <ToggleControl
           label={'Dotted List'}
-          checked={doted}
+          checked={dotted}
           onChange={(newDottedList) => onTextStyleChanges('dottedList', newDottedList)}
         />
         <RangeControl
@@ -88,6 +84,15 @@ const SidePanelSettings = ({ attributes, setAttributes }) => {
           label="Round corners"
           onChange={(value) => {
             onTextStyleChanges('borderRadius', value);
+          }}
+        />
+        <RangeControl
+          min={0}
+          max={25}
+          value={boxShadow}
+          label="Shadow"
+          onChange={(value) => {
+            onTextStyleChanges('boxShadow', value);
           }}
         />
 

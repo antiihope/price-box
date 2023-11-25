@@ -72,7 +72,8 @@
         "alignPrice": "center",
         "planNameTag": "h3",
         "planPlacement": "top",
-        "borderRadius": 0
+        "borderRadius": 0,
+        "boxShadow": 0
       }
     },
     "theme": {
