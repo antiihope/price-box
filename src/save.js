@@ -3,12 +3,12 @@ import { useSelect } from '@wordpress/data';
 
 export default function save({ attributes, clientId }) {
   const { price, planName, benefits, discount, link, addedStyles, featured, featuredText, description, theme } = attributes;
-  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius } = addedStyles;
+  const { dottedList: dotted, alignList, alignPrice, planPlacement, borderRadius, boxShadow } = addedStyles;
 
   return (
     <div
       {...useBlockProps.save({
-        className: `border-${borderRadius}`,
+        className: `border-${borderRadius} box-shadow-${boxShadow} align-${alignPrice}}`,
       })}
     >
       <div className={`price-box-container ${featured ? 'featured-block' : theme}`}>
